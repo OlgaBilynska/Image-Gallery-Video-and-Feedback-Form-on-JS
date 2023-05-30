@@ -18,6 +18,7 @@ formEl.addEventListener('input', throttle(onFormInput, 500));
 
 useLocalStorage();
 
+
 function onFormInput(event) {
     formData[event.target.name] = event.target.value;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
