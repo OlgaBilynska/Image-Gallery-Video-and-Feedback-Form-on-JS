@@ -41,7 +41,6 @@ function useLocalStorage() {
     const savedData = localStorage.getItem(STORAGE_KEY);
 
     if (savedData) {
-        // console.log(savedData);
         const parsedData = JSON.parse(savedData);
 
         if (parsedData.email) {
