@@ -19,7 +19,6 @@ formEl.addEventListener('input', throttle(onFormInput, 500));
 
 useLocalStorage();
 
-
 function onFormInput(event) {
     formData[event.target.name] = event.target.value;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
@@ -30,6 +29,7 @@ function onFormSubmit(e) {
     if (inputEl.value.trim() === '' || messageEl.value.trim() === '') {
         alert('Fill out all the fields of the form!');
     } else {
+        console.log(formData);
         e.currentTarget.reset();
         localStorage.removeItem(STORAGE_KEY);
         formData.email = '';
@@ -41,7 +41,7 @@ function useLocalStorage() {
     const savedData = localStorage.getItem(STORAGE_KEY);
 
     if (savedData) {
-        console.log(savedData);
+        // console.log(savedData);
         const parsedData = JSON.parse(savedData);
 
         if (parsedData.email) {
